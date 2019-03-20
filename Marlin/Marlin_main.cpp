@@ -15277,6 +15277,11 @@ void setup() {
   #if ENABLED(SDSUPPORT) && DISABLED(ULTRA_LCD)
     card.beginautostart();
   #endif
+  
+  // RM: Added to show SD files upon startup (from TH3D Marlin)
+  #if ENABLED(SDSUPPORT)
+	  if (!card.cardOK) card.initsd();
+	#endif
 }
 
 /**
